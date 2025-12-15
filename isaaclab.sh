@@ -610,16 +610,6 @@ while [[ $# -gt 0 ]]; do
             # restore LD_PRELOAD if we cleared it
             end_arm_install_sandbox
 
-            # check if we are inside a docker container or are building a docker image
-            # in that case don't setup VSCode since it asks for EULA agreement which triggers user interaction
-            if is_docker; then
-                echo "[INFO] Running inside a docker container. Skipping VSCode settings setup."
-                echo "[INFO] To setup VSCode settings, run 'isaaclab -v'."
-            else
-                # update the vscode settings
-                update_vscode_settings
-            fi
-
              # unset local variables
             unset extract_python_exe
             unset extract_pip_command
